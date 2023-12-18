@@ -9,14 +9,13 @@ import {
     faEarthAsia,
     faKeyboard,
     faCircleQuestion,
-    faCloudUpload,
     faUser,
     faCoins,
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css'; // optional
+import 'tippy.js/dist/tippy.css';
 import HeadlessTippy from '@tippyjs/react/headless';
 
 import Button from '~/components/Button';
@@ -25,6 +24,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -154,7 +155,26 @@ export default function Header() {
                                 delay={[0, 200]}
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy
+                                content="Inbox"
+                                placement="bottom"
+                                delay={[0, 200]}
+                            >
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy
+                                content="Message"
+                                placement="bottom"
+                                delay={[0, 200]}
+                            >
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
@@ -169,10 +189,10 @@ export default function Header() {
                         onChange={handleMenuChange}
                     >
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 alt="ThienNT"
-                                src="https://s2.coinmarketcap.com/static/img/coins/200x200/25378.png"
+                                src="https//s2.coinmarketcap.com/static/img/coins/200x200/25378.png"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
